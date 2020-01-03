@@ -9,6 +9,7 @@ class Dashboard extends MY_Controller
     {
         parent::__construct();
         if (! $this->user) {
+            //echo "redirect";
             redirect('login');
         }
         $this->register = $this->session->userdata('register') ? $this->session->userdata('register') : FALSE;

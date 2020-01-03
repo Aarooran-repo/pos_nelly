@@ -171,6 +171,7 @@
  * ------------------------------------------------------
  */
 	$RTR =& load_class('Router', 'core');
+	//echo $RTR ;
 	$RTR->_set_routing();
 
 	// Set any routing overrides that may exist in the main index file
@@ -263,7 +264,9 @@
  *  controller functions that begin with an underscore
  */
 	$class  = $RTR->fetch_class();
+
 	$method = $RTR->fetch_method();
+	
 
 	if ( ! class_exists($class)
 		OR strncmp($method, '_', 1) == 0
@@ -307,6 +310,8 @@
 	$BM->mark('controller_execution_time_( '.$class.' / '.$method.' )_start');
 
 	$CI = new $class();
+
+
 
 /*
  * ------------------------------------------------------
